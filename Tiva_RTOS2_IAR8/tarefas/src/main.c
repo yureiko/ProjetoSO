@@ -5,12 +5,29 @@
 #include "UART_funcs.h"  //UART functions
 #include "PWM_funcs.h"  //PWM functions
 
-#define MSGQUEUE_OBJECTS      1 
+#define MSGQUEUE_OBJECTS      1
+
+#define zero1 0.933
+#define zero2 0.933
+#define polo1 0.0393
+#define polo2 0.0225
+#define gain 0.97
+
+static float r = 30;
+const float k = 1.0/gain;
+const float coef_a = -1.0*(zero1 + zero2); 
+const float coef_b = (zero1 * zero2);
+const float coef_c = -1.0*(polo1 + polo2); 
+const float coef_d = (polo1 * polo2);
+static float y = 0.0;              // value output to the PWM (analog out)
 
 typedef struct {                                 // Message object structure
   uint16_t  voltage;                              // AD result of measured voltage
-  float  duty;
 } MSGQUEUE_OBJ_t;
+
+typedef struct {                                 // Message object structure                            
+  float  duty;
+} MSGQUEUE2_OBJ_t;
 
 osMessageQueueId_t mid_MsgQueue;  
 osMessageQueueId_t mid_MsgQueue2;  
@@ -25,7 +42,7 @@ void thread1(void *arg){
     state ^= LED1;
     LEDWrite(LED1, state);
 //    for(int32_t i = 0; i < 100000; i++);
-    osDelay(100);
+    osDelay(1000);
   } // while
 } // thread1
 
@@ -35,7 +52,10 @@ void ADC_thread(void *arg)
   MSGQUEUE_OBJ_t msg;
   
   while (1) {
-    msg.voltage = ADC_get_value();
+    for(uint8_t c = 0; c < 8; c ++)
+      msg.voltage += ADC_get_value();
+    
+    msg.voltage >>= 3;
     
     osMessageQueuePut(mid_MsgQueue, &msg, 0, NULL);
     
@@ -53,13 +73,13 @@ void UART_thread(void *arg)
 
 void PWM_thread(void *arg)
 {
- MSGQUEUE_OBJ_t msg;
+  MSGQUEUE2_OBJ_t msg;
   osStatus_t status;
   while (1) {
-    status = osMessageQueueGet(mid_MsgQueue2, &msg, NULL, NULL);  // wait for message
+    status = osMessageQueueGet(mid_MsgQueue2, &msg, NULL, osWaitForever);  // wait for message
     if (status == osOK) {
         PWM_set_duty((float)msg.duty);
-        osMessageQueueDelete(&msg);
+        //osMessageQueueDelete(&msg);
         osThreadYield();
     }
   }
@@ -68,24 +88,12 @@ void PWM_thread(void *arg)
 void Control_thread(void *arg)
 {
   MSGQUEUE_OBJ_t msg;
+  MSGQUEUE2_OBJ_t msg2;
   osStatus_t status;
-  #define zero1 0.933
-  #define zero2 0.933
-  #define polo1 0.0393
-  #define polo2 0.0225
-  #define gain 0.97
-  
   uint16_t sensorValue = 0;        // value read from the ADC
-  float y = 0.0;              // value output to the PWM (analog out)
-  float r = 30;
-  float u[3] = {0.0, 0.0, 0.0};
-  float e[3] = {0.0, 0.0, 0.0};
   uint8_t n = 0;
-  float k = 1.0/gain;
-  float coef_a = -1.0*(zero1 + zero2); 
-  float coef_b = (zero1 * zero2);
-  float coef_c = -1.0*(polo1 + polo2); 
-  float coef_d = (polo1 * polo2);
+  static float u[3] = {0.0, 0.0, 0.0};
+  static float e[3] = {0.0, 0.0, 0.0};
   
   while (1) {
     
@@ -93,7 +101,7 @@ void Control_thread(void *arg)
     if(status == osOK) 
     {       
       sensorValue = msg.voltage;
-      osMessageQueueDelete(&msg);
+      //osMessageQueueDelete(&msg);
      
       y = 3.3 * (float)sensorValue/4095;
       e[0] = (r+20)*0.0125 - y;
@@ -105,15 +113,16 @@ void Control_thread(void *arg)
       if(u[0]>3.3)
         u[0] = 3.3;
       
-      msg.duty = u[0]/3.3;
+      msg2.duty = 1 - (u[0]*0.31);
       
-      osMessageQueuePut(mid_MsgQueue2, &msg, 0, NULL);
+      osMessageQueuePut(mid_MsgQueue2, &msg2, 0, osWaitForever);
     
       for(n = 2; n > 0; n--)
       {
           u[n] = u[n-1];
           e[n] = e[n-1];
-      }   
+      } 
+     
     }
     osDelay(10);    
    
@@ -135,7 +144,7 @@ void main(void){
   if (!mid_MsgQueue) {
     ; // Message Queue object not created, handle failure
   }
-  mid_MsgQueue2 = osMessageQueueNew(MSGQUEUE_OBJECTS, sizeof(MSGQUEUE_OBJ_t), NULL);
+  mid_MsgQueue2 = osMessageQueueNew(MSGQUEUE_OBJECTS, sizeof(MSGQUEUE2_OBJ_t), NULL);
   if (!mid_MsgQueue2) {
     ; // Message Queue object not created, handle failure
   }
@@ -145,6 +154,8 @@ void main(void){
   UART_thread_id = osThreadNew(UART_thread, NULL, NULL);
   PWM_thread_id = osThreadNew(PWM_thread, NULL, NULL);
   Control_thread_id = osThreadNew(Control_thread, NULL, NULL);
+  
+  osThreadSetPriority(Control_thread_id, osPriorityRealtime);
 
   if(osKernelGetState() == osKernelReady)
     osKernelStart();
