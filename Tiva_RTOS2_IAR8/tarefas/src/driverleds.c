@@ -7,12 +7,13 @@
 
 void LEDInit(uint8_t leds){
   
-  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE); // Habilita GPIO E
-  while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE)); // Aguarda final da habilitação
-  
-  GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE, GPIO_PIN_0); // PE0 como saída
-  GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, 1);  
-  
+  //habilita o pino de enable no driver do motor cc
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE); // Habilita GPIO E
+    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOE)); // Aguarda final da habilitação
+    
+    GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE, GPIO_PIN_0); // PE0 como saída
+    GPIOPinWrite(GPIO_PORTE_BASE, GPIO_PIN_0, 1);  
+    
   if(leds & (LED1 | LED2)){
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPION); // Habilita GPIO N (LED D1 = PN1, LED D2 = PN0)
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPION)); // Aguarda final da habilitação

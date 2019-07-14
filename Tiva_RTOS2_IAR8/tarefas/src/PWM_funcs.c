@@ -8,8 +8,7 @@
 #include "PWM_funcs.h"
 
 void PWM_init()
-{
-    //
+{    //
     // Set the PWM clock to the system clock.
     //
     SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
