@@ -17,4 +17,9 @@ void UART_send_byte(const uint8_t *pui8Buffer, uint32_t ui32Count);
 
 extern uint32_t SystemCoreClock;        //Clock do uC, definido em sysctl.h
 
+uint8_t UART_char_available();
+
+int32_t UART_get_byte();
+
+
 #endif

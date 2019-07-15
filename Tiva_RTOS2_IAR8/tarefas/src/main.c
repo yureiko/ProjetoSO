@@ -24,7 +24,8 @@ typedef struct {                                 // Message object structure
 } MSGQUEUE2_OBJ_t;
 
 osMessageQueueId_t mid_MsgQueue;  
-osMessageQueueId_t mid_MsgQueue2;  
+osMessageQueueId_t mid_MsgQueue2;
+osMessageQueueId_t mid_MsgQueue3;  
 
 osThreadId_t thread1_id, ADC_thread_id, UART_thread_id,
              PWM_thread_id, Control_thread_id;
@@ -62,9 +63,17 @@ void ADC_thread(void *arg)
 
 void UART_thread(void *arg)
 {
+  uint16_t angle;
+  
   while(1)
   {
-      osThreadYield(); 
+    if(UART_char_available())                           // 2 char sequencia
+    {                                                   // converter 2 char em 1 uint16_t
+      angle = UART_get_byte();                          //valor 0<angle<70
+      osMessageQueuePut(mid_MsgQueue3, &angle, 0, NULL);//angle ja tem que estar tratado antes de chegar auqi
+    }
+      
+    osThreadYield(); 
   }
 }
 
@@ -89,7 +98,7 @@ void Control_thread(void *arg)
     // Enable Floating point number
   FPUEnable();
   
-  static float r = 30.0;
+  static float r = 45.0;
   const float k = 1.0/gain;
   const float coef_a = -1.0*(zero1 + zero2); 
   const float coef_b = (zero1 * zero2);
@@ -108,7 +117,12 @@ void Control_thread(void *arg)
     
     status = osMessageQueueGet(mid_MsgQueue, &msg, NULL, osWaitForever);  // wait for message
     if(status == osOK) 
-    {       
+    {   
+      /*if(osMessageQueueGet(mid_MsgQueue, &angle, NULL, NULL) == osOK)
+      {
+        r = angle;
+      }*/
+        
       sensorValue = msg.voltage;
       //osMessageQueueDelete(&msg);
      
@@ -153,6 +167,10 @@ void main(void){
   if (!mid_MsgQueue2) {
     ; // Message Queue object not created, handle failure
   }
+  mid_MsgQueue3 = osMessageQueueNew(MSGQUEUE_OBJECTS, sizeof(uint16_t), NULL);
+  if (!mid_MsgQueue2) {
+    ; // Message Queue object not created, handle failure
+  }
 
   thread1_id = osThreadNew(thread1, NULL, NULL);
   ADC_thread_id = osThreadNew(ADC_thread, NULL, NULL);
@@ -160,7 +178,7 @@ void main(void){
   PWM_thread_id = osThreadNew(PWM_thread, NULL, NULL);
   Control_thread_id = osThreadNew(Control_thread, NULL, NULL);
   
-  //osThreadSetPriority(Control_thread_id, osPriorityRealtime);
+  osThreadSetPriority(PWM_thread_id, osPriorityHigh);
 
   if(osKernelGetState() == osKernelReady)
     osKernelStart();
