@@ -1,5 +1,5 @@
 driverleds.pbi: \
-  C:\Users\yuri_\Desktop\Sistemas\ Operacionais\Tiva_RTOS2_IAR8\tarefas\src\driverleds.c \
+  C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\src\driverleds.c \
   D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdbool.h \
   D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdint.h \
   D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
@@ -7,7 +7,7 @@ driverleds.pbi: \
   D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Defaults.h \
   D:\\Program\ Files\ (x86)\\IAR\ Systems\\Embedded\ Workbench\ 8.3\\arm\\inc\\c\\DLib_Config_Normal.h \
   D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product.h \
-  C:\Users\yuri_\Desktop\Sistemas\ Operacionais\Tiva_RTOS2_IAR8\tarefas\..\inc/hw_memmap.h \
-  C:\Users\yuri_\Desktop\Sistemas\ Operacionais\Tiva_RTOS2_IAR8\tarefas\..\driverlib/sysctl.h \
-  C:\Users\yuri_\Desktop\Sistemas\ Operacionais\Tiva_RTOS2_IAR8\tarefas\..\driverlib/gpio.h \
-  C:\Users\yuri_\Desktop\Sistemas\ Operacionais\Tiva_RTOS2_IAR8\tarefas\src/driverleds.h
+  C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\inc/hw_memmap.h \
+  C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\driverlib/sysctl.h \
+  C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\driverlib/gpio.h \
+  C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\src/driverleds.h

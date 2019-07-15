@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.general.xcl" --backend -f "C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.driver.xcl" 
+& "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.general.xcl" --backend -f "C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.driver.xcl" 
 }
 else
 {
-& "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.driver.xcl" 
+& "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\settings\tarefas.Debug.driver.xcl" 
 }

@@ -1,28 +1,28 @@
-"C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\src\system_tm4c1294.c"
+"C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\src\system_tm4c1294.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -MD
 -MF
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\ewarm\Obj\system_tm4c1294.pbi.dep
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\ewarm\Obj\system_tm4c1294.pbi.dep
 -o
 system_tm4c1294.pbi
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\src
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\src
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\..\..\..
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\..\..
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\..
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\..\driverlib
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\driverlib
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\..\Device\ARM\ARMCM4\Include
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\Device\ARM\ARMCM4\Include
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\..\CMSIS\RTOS2\Include
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\CMSIS\RTOS2\Include
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\..\CMSIS\RTOS2\RTX\Include
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\CMSIS\RTOS2\RTX\Include
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\tarefas\..\CMSIS\RTOS2\RTX\Library\IAR\IDE
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\tarefas\..\CMSIS\RTOS2\RTX\Library\IAR\IDE
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CMSIS\Core\Include
 -I
@@ -34,17 +34,17 @@ D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\c
 -I
 C:\Users\yuri_\Desktop
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\driverlib
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\driverlib
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\Device\ARM\ARMCM4\Include
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\Device\ARM\ARMCM4\Include
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\CMSIS\RTOS2\Include
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\CMSIS\RTOS2\Include
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\CMSIS\RTOS2\RTX\Include
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\CMSIS\RTOS2\RTX\Include
 -I
-C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8\CMSIS\RTOS2\RTX\Library\IAR\IDE
+C:\Users\yuri_\Desktop\RTROS\Tiva_RTOS2_IAR8\CMSIS\RTOS2\RTX\Library\IAR\IDE
 -I
 D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CMSIS\Core\Include
 -I

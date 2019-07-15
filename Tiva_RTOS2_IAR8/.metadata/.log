@@ -1,0 +1,12 @@
+!SESSION 2019-07-15 15:43:46.182 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\yuri_\Desktop\Sistemas Operacionais\Tiva_RTOS2_IAR8
+
+!ENTRY com.iar.cdt.arm.toolchain.cmsis.adapter 1 0 2019-07-15 15:44:34.049
+!MESSAGE Using CMSIS pack repositories: http://links.iar.com/cmsis/pack
+
+!ENTRY com.iar.cmsismanager.product 1 0 2019-07-15 15:44:35.117
+!MESSAGE CMSIS Agent interface registered with service registry at ServiceLocation(host:\\.\pipe\iar-cspy-cpp-binary-com.iar.thrift.service.registry-855e73ff-972d-473e-b415-7d21ef296fcb-1, port:0, protocol:Binary, transport:Pipe)
