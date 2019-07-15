@@ -56,12 +56,12 @@ void PWM_init()
     // use the following equation: N = (1 / f) * SysClk.  Where N is the
     // function parameter, f is the desired frequency, and SysClk is the
     // system clock frequency.
-    // In this case you get: (1 / 250Hz) * 16MHz = 64000 cycles.  Note that
+    // In this case you get: (1 / 1kHz) * 250MHz = 64000 cycles.  Note that
     // the maximum period you can set is 2^16 - 1.
     // TODO: modify this calculation to use the clock frequency that you are
     // using.
     //
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_1, 64000);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_1, 2500000);
 
     //
     // Set PWM0 PD0 to a duty cycle of 25%.  You set the duty cycle as a
@@ -84,5 +84,5 @@ void PWM_init()
 void PWM_set_duty(float duty)
 {
   PWMPulseWidthSet(PWM0_BASE, PWM_OUT_2,
-                     (float)PWMGenPeriodGet(PWM0_BASE, PWM_GEN_1)*duty);
+                     (uint32_t)PWMGenPeriodGet(PWM0_BASE, PWM_GEN_1)*duty);
 }

@@ -20272,7 +20272,7 @@
     "display": "void Control_thread(void *)",
     "location": {
       "column": "6",
-      "line": "88",
+      "line": "89",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "Control_thread",
@@ -20280,13 +20280,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2204@F@Control_thread@msg",
+    "ID": "c:main.c@2203@F@Control_thread@msg",
     "What": "Variable",
     "defdec": "Def",
     "display": "msg",
     "location": {
       "column": "18",
-      "line": "90",
+      "line": "91",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "msg",
@@ -20294,13 +20294,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2227@F@Control_thread@msg2",
+    "ID": "c:main.c@2226@F@Control_thread@msg2",
     "What": "Variable",
     "defdec": "Def",
     "display": "msg2",
     "location": {
       "column": "19",
-      "line": "91",
+      "line": "92",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "msg2",
@@ -20308,13 +20308,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2252@F@Control_thread@status",
+    "ID": "c:main.c@2251@F@Control_thread@status",
     "What": "Variable",
     "defdec": "Def",
     "display": "status",
     "location": {
       "column": "14",
-      "line": "92",
+      "line": "93",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "status",
@@ -20322,13 +20322,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2274@F@Control_thread@sensorValue",
+    "ID": "c:main.c@2273@F@Control_thread@sensorValue",
     "What": "Variable",
     "defdec": "Def",
     "display": "sensorValue",
     "location": {
       "column": "12",
-      "line": "93",
+      "line": "94",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "sensorValue",
@@ -20336,13 +20336,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2337@F@Control_thread@n",
+    "ID": "c:main.c@2336@F@Control_thread@n",
     "What": "Variable",
     "defdec": "Def",
     "display": "n",
     "location": {
       "column": "11",
-      "line": "94",
+      "line": "95",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "n",
@@ -20350,13 +20350,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2355@F@Control_thread@u",
+    "ID": "c:main.c@2354@F@Control_thread@u",
     "What": "Variable",
     "defdec": "Def",
     "display": "u",
     "location": {
       "column": "16",
-      "line": "95",
+      "line": "96",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "u",
@@ -20364,13 +20364,13 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@2395@F@Control_thread@e",
+    "ID": "c:main.c@2394@F@Control_thread@e",
     "What": "Variable",
     "defdec": "Def",
     "display": "e",
     "location": {
       "column": "16",
-      "line": "96",
+      "line": "97",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "e",
@@ -20384,7 +20384,7 @@
     "display": "void main(void)",
     "location": {
       "column": "6",
-      "line": "134",
+      "line": "135",
       "path": "C:\\Users\\yuri_\\Desktop\\Sistemas Operacionais\\Tiva_RTOS2_IAR8\\tarefas\\src\\main.c"
     },
     "name": "main",

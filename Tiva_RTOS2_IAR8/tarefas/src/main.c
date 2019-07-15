@@ -76,8 +76,9 @@ void PWM_thread(void *arg)
   MSGQUEUE2_OBJ_t msg;
   osStatus_t status;
   while (1) {
-    status = osMessageQueueGet(mid_MsgQueue2, &msg, NULL, osWaitForever);  // wait for message
+    status = osMessageQueueGet(mid_MsgQueue2, &msg, NULL, NULL);  // wait for message
     if (status == osOK) {
+      
         PWM_set_duty((float)msg.duty);
         //osMessageQueueDelete(&msg);
         osThreadYield();
@@ -113,7 +114,7 @@ void Control_thread(void *arg)
       if(u[0]>3.3)
         u[0] = 3.3;
       
-      msg2.duty = 1 - (u[0]*0.31);
+      msg2.duty = 1.0 - ((float)u[0]/3.3);
       
       osMessageQueuePut(mid_MsgQueue2, &msg2, 0, osWaitForever);
     
